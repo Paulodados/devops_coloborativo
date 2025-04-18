@@ -1,6 +1,6 @@
 services:
 
- jupyter:
+jupyter:
    image: jupyter/datascience-notebook:latest
    ports:
      - "8888:8888"
@@ -9,7 +9,7 @@ services:
    networks:
      - minha-rede
 
-  postgres:
+postgres:
    image: postgres:13
    environment:
      POSTGRES_USER: user
@@ -20,7 +20,7 @@ services:
    networks:
      - minha-rede
 
-  adminer:
+adminer:
    image: adminer:latest
    ports:
      - "8080:8080"
@@ -28,7 +28,7 @@ services:
      - postgres
    networks:
      - minha-rede
-          
+
 volumes:
  postgres-data:
 
