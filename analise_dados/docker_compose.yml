@@ -9,7 +9,7 @@ services:
    networks:
      - minha-rede
 
-postgres:
+  postgres:
    image: postgres:13
    environment:
      POSTGRES_USER: user
@@ -17,6 +17,15 @@ postgres:
      POSTGRES_DB: data_db
    volumes:
      - postgres-data:/var/lib/postgresql/data
+   networks:
+     - minha-rede
+
+  adminer:
+   image: adminer:latest
+   ports:
+     - "8080:8080"
+   depends_on:
+     - postgres
    networks:
      - minha-rede
           
